@@ -163,7 +163,7 @@
             <input 
               type="text" 
               [value]="recipientName()" 
-              (input)="recipientName.set($any($event.target).value)"
+              (input)="recipientName.set($any($event).target.value)"
               class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#8b0000] focus:border-[#8b0000] font-['Lato']"
             >
           </div>
@@ -172,7 +172,7 @@
             <input 
               type="text" 
               [value]="editRelationship()"
-              (input)="editRelationship.set($any($event.target).value)"
+              (input)="editRelationship.set($any($event).target.value)"
               placeholder="e.g. My beautiful wife, My secret crush"
               class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#8b0000] focus:border-[#8b0000] font-['Lato']"
             >
@@ -181,7 +181,7 @@
             <label class="block text-sm font-bold text-gray-700 mb-1">Tone / Vibe</label>
             <select 
               [value]="editTone()"
-              (change)="editTone.set($any($event.target).value)"
+              (change)="editTone.set($any($event).target.value)"
               class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#8b0000] focus:border-[#8b0000] bg-white font-['Lato']"
             >
               <option value="Romantic & Deep">Romantic & Deep</option>
