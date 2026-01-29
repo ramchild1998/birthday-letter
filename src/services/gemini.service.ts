@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { GoogleGenAI } from '@google/genai';
 
+// Declare process to avoid TypeScript errors since @types/node might be missing
+declare const process: {
+  env: {
+    [key: string]: string | undefined;
+  };
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +16,8 @@ export class GeminiService {
 
   constructor() {
     // Initialize Gemini with the API key from environment
-    this.ai = new GoogleGenAI({ apiKey: process.env['API_KEY'] || '' });
+    const apiKey = process.env['API_KEY'] || '';
+    this.ai = new GoogleGenAI({ apiKey });
   }
 
   async generateRomanticMessage(recipientName: string, relationship: string, tone: string): Promise<string> {
