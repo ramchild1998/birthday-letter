@@ -36,7 +36,8 @@ export class AppComponent {
   messageBody = signal('Every year with you is a journey of growth, passion, and shared success. With all my love, always.');
   
   // Photo Signal
-  photoUrl = signal('src/assets/IMG_20260129_224508.png');
+  // CHANGED: Use a valid URL for default state to prevent 404s on Netlify
+  photoUrl = signal('https://images.unsplash.com/photo-1516575150278-77136aed6920?q=80&w=2670&auto=format&fit=crop');
   
   // Handwriting Effect Signals
   displayedMessage = signal('');
