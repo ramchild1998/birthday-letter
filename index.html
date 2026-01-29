@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Wish</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Great Vibes for handwriting, Playfair Display for elegance, Monsieur La Doulaise for signature, Dancing Script for readable handwriting -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Monsieur+La+Doulaise&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* Custom 3D utilities for the envelope */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+    .rotate-x-180 {
+      transform: rotateX(180deg);
+    }
+    
+    /* Paper texture effect */
+    .paper-texture {
+      background-color: #fdfbf7;
+      background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+    }
+
+    /* Envelope fold animation classes */
+    .origin-top { transform-origin: top; }
+    
+    /* Smooth transitions */
+    .transition-custom {
+      transition: all 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    
+    /* Custom Animations */
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(20px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .animate-fade-in-up {
+      animation: fade-in-up 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    @keyframes unfold {
+      from { opacity: 0; pointer-events: none; transform: scale(0.9) rotateX(-20deg); }
+      to { opacity: 1; pointer-events: auto; transform: scale(1) rotateX(0deg); }
+    }
+    .animate-unfold {
+      animation: unfold 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s both;
+    }
+    
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.4); }
+      50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+    }
+    .animate-glow {
+      animation: glow 3s infinite ease-in-out;
+    }
+
+    /* Utility class for text shadow */
+    .text-shadow {
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    /* Cross-browser scrollbar hiding */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "rxjs": "https://esm.sh/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://esm.sh/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://esm.sh/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://esm.sh/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://esm.sh/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://esm.sh/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@angular/core": "https://esm.sh/@angular/core@^21.1.2?external=rxjs",
+    "@angular/platform-browser": "https://esm.sh/@angular/platform-browser@^21.1.2?external=rxjs",
+    "@angular/forms": "https://esm.sh/@angular/forms@^21.1.2?external=rxjs",
+    "@angular/compiler": "https://esm.sh/@angular/compiler@^21.1.2?external=rxjs",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0?external=rxjs",
+    "@angular/common": "https://esm.sh/@angular/common@^21.1.2?external=rxjs"
+  }
+}
+</script>
+</head>
+<body class="bg-[#1a120b] text-gray-800 overflow-hidden h-screen w-screen flex items-center justify-center">
+  <app-root></app-root>
+</body>
+</html>
