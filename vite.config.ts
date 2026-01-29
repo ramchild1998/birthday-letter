@@ -4,11 +4,11 @@ import angular from '@analogjs/vite-plugin-angular';
 export default defineConfig({
   plugins: [
     angular({
-      jit: true, // Keeping JIT true for easier migration from the online editor
+      jit: true,
     }),
   ],
   define: {
-    // Polyfill process.env so accessing API_KEY doesn't crash the app
+    // Safely expose process.env.API_KEY
     'process.env': JSON.stringify({
       API_KEY: process.env['API_KEY'] || '',
     }),
